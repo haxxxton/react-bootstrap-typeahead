@@ -1,6 +1,6 @@
 {
-  "name": "react-bootstrap-typeahead",
-  "version": "1.4.1",
+  "name": "react-bootstrap-typeahead-tabindex",
+  "version": "1.4.2",
   "description": "React-based typeahead using the Bootstrap theme",
   "main": "lib/index.js",
   "directories": {
@@ -33,7 +33,7 @@
     "lodash": "^4.17.2",
     "prop-types": "^15.5.8",
     "react-highlighter": "^0.4.0",
-    "react-input-autosize": "^1.1.4",
+    "react-input-autosize-fixes": "^1.1.5",
     "react-onclickoutside": "^5.7.0",
     "react-overlays": "^0.7.0",
     "react-prop-types": "^0.4.0",
@@ -82,7 +82,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ericgio/react-bootstrap-typeahead.git"
+    "url": "https://github.com/haxxxton/react-bootstrap-typeahead-tabindex.git"
   },
-  "bugs": "https://github.com/ericgio/react-bootstrap-typeahead/issues"
+  "bugs": "https://github.com/haxxxton/react-bootstrap-typeahead-tabindex/issues"
 }

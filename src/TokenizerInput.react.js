@@ -2,7 +2,7 @@ import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {findDOMNode} from 'react-dom';
-import AutosizeInput from 'react-input-autosize';
+import AutosizeInput from 'react-input-autosize-fixes';
 
 import Token from './Token.react';
 
