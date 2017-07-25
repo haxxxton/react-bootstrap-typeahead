@@ -202,10 +202,6 @@ TokenizerInput.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * Fires a callback when the component is updated
-   */
-  onComponentUpdate: PropTypes.func,
-  /**
    * Placeholder text for the input.
    */
   placeholder: PropTypes.string,

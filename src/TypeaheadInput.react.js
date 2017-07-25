@@ -29,9 +29,12 @@ class TypeaheadInput extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const {activeIndex, value} = this.props;
+    const {activeIndex, onComponentUpdate, value} = this.props;
     if (activeIndex !== prevProps.activeIndex) {
       this._input.getInstance().selectionStart = value.length;
+    }
+    if (onComponentUpdate) {
+      onComponentUpdate(prevProps, prevState, this.props, this.state);
     }
   }
 

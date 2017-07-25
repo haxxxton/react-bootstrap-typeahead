@@ -192,6 +192,7 @@ class Typeahead extends React.Component {
       minLength,
       multiple,
       name,
+      onComponentUpdate,
       placeholder,
       renderToken,
       tabIndex,
@@ -202,6 +203,7 @@ class Typeahead extends React.Component {
       bsSize,
       disabled,
       name,
+      onComponentUpdate,
       placeholder,
       renderToken,
       tabIndex,
@@ -565,6 +567,10 @@ Typeahead.propTypes = {
    */
   onChange: PropTypes.func,
   /**
+   * Fires a callback when the component is updated
+   */
+  onComponentUpdate: PropTypes.func,
+  /**
    * Invoked when the input is focused. Receives an event.
    */
   onFocus: PropTypes.func,
@@ -640,6 +646,7 @@ Typeahead.defaultProps = {
   multiple: false,
   onBlur: noop,
   onChange: noop,
+  onComponentUpdate: noop,
   onFocus: noop,
   onInputChange: noop,
   onPaginate: noop,
