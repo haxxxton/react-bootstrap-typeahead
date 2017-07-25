@@ -32,6 +32,15 @@ class TokenizerInput extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const {
+      onComponentUpdate,
+    } = this.props;
+    if (onComponentUpdate) {
+      onComponentUpdate(prevProps, prevState, this.props, this.state);
+    }
+  }
+
   render() {
     const {
       bsSize,
@@ -192,6 +201,10 @@ TokenizerInput.propTypes = {
    * Whether to disable the input and all selections.
    */
   disabled: PropTypes.bool,
+  /**
+   * Fires a callback when the component is updated
+   */
+  onComponentUpdate: PropTypes.func,
   /**
    * Placeholder text for the input.
    */
