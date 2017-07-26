@@ -48,6 +48,7 @@ class TokenizerInput extends React.Component {
       hasAux,
       placeholder,
       selected,
+      styles,
       tabIndex,
       value,
     } = this.props;
@@ -71,6 +72,7 @@ class TokenizerInput extends React.Component {
         style={{
           cursor: 'text',
           height: 'auto',
+          ...styles.tokenizer,
         }}
         tabIndex={-1}>
         {selected.map(this._renderToken)}
@@ -85,6 +87,7 @@ class TokenizerInput extends React.Component {
             cursor: 'inherit',
             outline: 'none',
             padding: 0,
+            ...styles.input,
           }}
           onBlur={this._handleBlur}
           onChange={this._handleChange}
@@ -114,6 +117,7 @@ class TokenizerInput extends React.Component {
       labelKey,
       onRemove,
       renderToken,
+      styles,
       tabIndex,
     } = this.props;
     const onRemoveWrapped = () => onRemove(option);
@@ -127,6 +131,7 @@ class TokenizerInput extends React.Component {
         disabled={disabled}
         key={idx}
         onRemove={onRemoveWrapped}
+        styles={styles}
         tabIndex={tabIndex}>
         {getOptionLabel(option, labelKey)}
       </Token>
@@ -212,5 +217,8 @@ TokenizerInput.propTypes = {
   renderToken: PropTypes.func,
 };
 
+TokenizerInput.defaultProps = {
+  styles: {},
+};
 
 export default TokenizerInput;

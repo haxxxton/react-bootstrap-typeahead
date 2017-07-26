@@ -14,15 +14,19 @@ class BaseMenuItem extends React.Component {
   }
 
   render() {
-    const {active, children, className, disabled} = this.props;
+    const {active, children, className, disabled, styles} = this.props;
 
     return (
       <li
         className={cx({
           'active': active,
           'disabled': disabled,
-        }, className)}>
-        <a onClick={this._handleClick} role="button">
+        }, className)}
+        style={styles.resultItem}>
+        <a
+          onClick={this._handleClick}
+          role="button"
+          style={styles.resultItemLink}>
           {children}
         </a>
       </li>
@@ -39,6 +43,7 @@ class BaseMenuItem extends React.Component {
 
 BaseMenuItem.defaultProps = {
   onClick: noop,
+  styles: {},
 };
 
 const MenuItem = menuItemContainer(BaseMenuItem);

@@ -20,7 +20,7 @@ class Menu extends React.Component {
   displayName = 'Menu';
 
   render() {
-    const {align, children, className, emptyLabel} = this.props;
+    const {align, children, className, emptyLabel, styles} = this.props;
     const noResults = Children.count(children) === 0;
 
     // If an empty string is passed, suppress menu when there are no results.
@@ -29,7 +29,7 @@ class Menu extends React.Component {
     }
 
     const contents = noResults ?
-      <BaseMenuItem disabled>
+      <BaseMenuItem disabled styles={styles}>
         {emptyLabel}
       </BaseMenuItem> :
       children;
@@ -51,7 +51,7 @@ class Menu extends React.Component {
    * Allow user to see more results, if available.
    */
   _renderPaginationMenuItem() {
-    const {children, onPaginate, paginate, paginationText} = this.props;
+    const {children, onPaginate, paginate, paginationText, styles} = this.props;
 
     if (paginate && Children.count(children)) {
       return [
@@ -63,7 +63,8 @@ class Menu extends React.Component {
         <BaseMenuItem
           className="bootstrap-typeahead-menu-paginator"
           key="pagination-item"
-          onClick={onPaginate}>
+          onClick={onPaginate}
+          styles={styles}>
           {paginationText}
         </BaseMenuItem>,
       ];
@@ -71,12 +72,13 @@ class Menu extends React.Component {
   }
 
   _getMenuStyle() {
-    const {align, dropup, maxHeight, style} = this.props;
+    const {align, dropup, maxHeight, style, styles} = this.props;
     const menuStyle = {
       ...style,
       display: 'block',
       maxHeight: maxHeight + 'px',
       overflow: 'auto',
+      ...styles.resultMenu,
     };
 
     if (style) {
@@ -121,6 +123,7 @@ Menu.defaultProps = {
   maxHeight: 300,
   paginate: true,
   paginationText: 'Display additional results...',
+  styles: {},
 };
 
 

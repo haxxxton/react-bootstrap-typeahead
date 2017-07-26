@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class TextInput extends React.Component {
   render() {
-    const {bsSize, className, hasAux, ...otherProps} = this.props;
+    const {bsSize, className, hasAux, styles, ...otherProps} = this.props;
 
     return (
       <input

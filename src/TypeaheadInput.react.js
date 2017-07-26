@@ -49,6 +49,7 @@ class TypeaheadInput extends React.Component {
       onFocus,
       placeholder,
       selected,
+      styles,
       tabIndex,
       value,
     } = this.props;
@@ -60,6 +61,7 @@ class TypeaheadInput extends React.Component {
       name,
       onFocus,
       placeholder,
+      styles,
       value,
     };
 
@@ -71,6 +73,7 @@ class TypeaheadInput extends React.Component {
         style={{
           outline: 'none',
           position: 'relative',
+          ...styles.inputWrapper,
         }}
         tabIndex={-1}>
         <TextInput
@@ -88,6 +91,7 @@ class TypeaheadInput extends React.Component {
             display: 'block',
             position: 'relative',
             zIndex: 1,
+            ...styles.input,
           }}
           tabIndex={0 + tabIndex}
         />
@@ -105,6 +109,7 @@ class TypeaheadInput extends React.Component {
             top: 0,
             width: '100%',
             zIndex: 0,
+            ...styles.inputHint,
           }}
           tabIndex={-1}
           value={this.state.isFocused ? hintText : ''}
@@ -213,6 +218,10 @@ TypeaheadInput.propTypes = {
    * Placeholder text for the input.
    */
   placeholder: PropTypes.string,
+};
+
+TypeaheadInput.defaultProps = {
+  styles: {},
 };
 
 

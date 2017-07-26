@@ -30,6 +30,7 @@ class TypeaheadMenu extends React.Component {
       'paginate',
       'paginationText',
       'style',
+      'styles',
     ]);
 
     return (
@@ -44,6 +45,7 @@ class TypeaheadMenu extends React.Component {
       labelKey,
       newSelectionPrefix,
       renderMenuItemChildren,
+      styles,
       text,
     } = this.props;
 
@@ -52,6 +54,7 @@ class TypeaheadMenu extends React.Component {
       key: idx,
       option,
       position: idx,
+      styles,
     };
 
     if (option.customOption) {

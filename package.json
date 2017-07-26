@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-typeahead-tabindex",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "React-based typeahead using the Bootstrap theme",
   "main": "lib/index.js",
   "directories": {

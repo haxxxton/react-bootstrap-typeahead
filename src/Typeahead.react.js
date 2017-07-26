@@ -103,7 +103,14 @@ class Typeahead extends React.Component {
   }
 
   render() {
-    const {allowNew, className, dropup, labelKey, paginate} = this.props;
+    const {
+      allowNew,
+      className,
+      dropup,
+      labelKey,
+      paginate,
+      styles,
+    } = this.props;
     const {shownResults, text} = this.state;
 
     // First filter the results by the input string.
@@ -127,7 +134,7 @@ class Typeahead extends React.Component {
         className={cx('bootstrap-typeahead', 'clearfix', 'open', {
           'dropup': dropup,
         }, className)}
-        style={{position: 'relative'}}>
+        style={{position: 'relative', ...styles.wrapper}}>
         {this._renderInput(results)}
         {this._renderAux()}
         {this._renderMenu(results, shouldPaginate)}
@@ -195,6 +202,7 @@ class Typeahead extends React.Component {
       onComponentUpdate,
       placeholder,
       renderToken,
+      styles,
       tabIndex,
     } = this.props;
     const {activeIndex, activeItem, initialItem, selected, text} = this.state;
@@ -206,6 +214,7 @@ class Typeahead extends React.Component {
       onComponentUpdate,
       placeholder,
       renderToken,
+      styles,
       tabIndex,
     };
 
@@ -252,6 +261,7 @@ class Typeahead extends React.Component {
       paginationText,
       renderMenu,
       renderMenuItemChildren,
+      styles,
     } = this.props;
 
     const {showMenu, text} = this.state;
@@ -266,6 +276,7 @@ class Typeahead extends React.Component {
       paginationText,
       onPaginate: this._handlePagination,
       paginate: shouldPaginate,
+      styles,
       text,
     };
 
@@ -606,6 +617,19 @@ Typeahead.propTypes = {
    */
   selected: PropTypes.array,
   /**
+   * List of styles passed down to subsequent elements
+   */
+  styles: PropTypes.shape({
+    wrapper: PropTypes.object,
+    tokenizer: PropTypes.object,
+    token: PropTypes.object,
+    inputWrapper: PropTypes.object,
+    input: PropTypes.object,
+    inputHint: PropTypes.object,
+    resultMenu: PropTypes.object,
+    resultItem: PropTypes.object,
+  }),
+  /**
    * Propagate <RETURN> event to parent form.
    */
   submitFormOnEnter: PropTypes.bool,
@@ -652,6 +676,18 @@ Typeahead.defaultProps = {
   onPaginate: noop,
   paginate: true,
   selected: [],
+  styles: {
+    wrapper: {},
+    tokenizer: {},
+    token: {},
+    tokenClose: {},
+    inputWrapper: {},
+    input: {},
+    inputHint: {},
+    resultMenu: {},
+    resultItem: {},
+    resultItemLink: {},
+  },
   submitFormOnEnter: false,
   tabIndex: 0,
 };

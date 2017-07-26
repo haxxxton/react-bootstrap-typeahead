@@ -26,6 +26,7 @@ class Token extends React.Component {
       className,
       onRemove,
       selected,
+      styles,
       tabIndex,
       ...otherProps
     } = this.props;
@@ -36,12 +37,14 @@ class Token extends React.Component {
         className={cx('token', 'token-removeable', {
           'token-selected': selected,
         }, className)}
+        style={styles.token}
         tabIndex={0 + tabIndex}>
         {children}
         <span
           className="close-button"
           onClick={onRemove}
-          role="button">
+          role="button"
+          style={styles.tokenClose}>
           &times;
         </span>
       </div>
@@ -80,6 +83,7 @@ Token.propTypes = {
 Token.defaultProps = {
   onRemove: noop,
   selected: false,
+  styles: {},
 };
 
 
