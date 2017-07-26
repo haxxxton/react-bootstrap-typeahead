@@ -61,7 +61,6 @@ class TypeaheadInput extends React.Component {
       name,
       onFocus,
       placeholder,
-      styles,
       value,
     };
 
