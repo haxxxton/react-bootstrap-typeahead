@@ -172,7 +172,9 @@ class TokenizerInput extends React.Component {
 
   _handleInputFocus(e) {
     if (this.props.disabled) {
-      e.target.blur();
+      if (e) {
+        e.target.blur();
+      }
       return;
     }
 
