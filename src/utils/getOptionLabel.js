@@ -13,12 +13,10 @@ function getOptionLabel(option, labelKey) {
     optionLabel = option;
   }
 
-  if (isPlainObject(option)) {
-    if (typeof labelKey === 'string') {
-      optionLabel = option[labelKey];
-    } else if (isFunction(labelKey)) {
-      optionLabel = labelKey(option);
-    }
+  if (isPlainObject(option) && typeof labelKey === 'string') {
+    optionLabel = option[labelKey];
+  } else if (isFunction(labelKey)) {
+    optionLabel = labelKey(option);
   }
 
   invariant(
